@@ -28,30 +28,53 @@ This segmentation supports risk assessment, product personalization, and strateg
 <summary><b>🧩 Project Steps</b></summary>
 
 ### 1. Import Libraries & Load Data
-- Imported essential libraries: `pandas`, `numpy`, `seaborn`, `matplotlib.pyplot`. 
-- Loaded dataset (`movies.csv`) using `pd.read_csv()` and inspected shape, columns, and sample records.
 
-### 2. Data Cleaning & Preparation
-- Checked and handled missing values (budget ~28%, gross ~2%).
-- Dropped or imputed nulls; converted `budget` and `gross` columns to numeric.
-- Extracted release year, removed duplicates, filtered outliers, and standardized types for consistency.
+    - Imported essential ML libraries:
+    - sklearn.cluster for KMeans
+    - sklearn.preprocessing for StandardScaler
+    - sklearn.decomposition for PCA
+    - scipy for statistical checks
 
-### 3. Exploratory Data Analysis (EDA)
-- Summarized numeric data with `df.describe()` and `df.info()`.
-- Ranked movies by gross revenue, analyzed genre frequency, and created boxplots and scatterplots for key trends.
+Loaded dataset and performed initial inspection.
 
-### 4. Correlation Analysis
-- Converted categorical data into numeric codes for full correlation computation.
-- Built correlation matrices (`pearson`, `kendall`, `spearman`) and ranked variable relationships.
-- Identified budget and votes as primary indicators of revenue success.
+### 2. ML-Oriented Data Cleaning & Feature Engineering
 
-### 5. Visualizations
-- Created heatmaps, regression plots, and strip plots using **Seaborn** for intuitive data exploration.
-- Highlighted trends such as budget vs. gross and votes vs. gross using color-coded visual cues.
- 
-### 6. Validation & Export
-- Verified insights against hypotheses (company influence proved minimal).
-- Saved cleaned dataset and notebook for reproducibility.
+    - Imputed missing values using median strategy to avoid distribution distortion.
+    - Removed non-predictive identifier column CUSTID.
+    - Standardized features using StandardScaler to ensure equal weight for all ML dimensions.
+    - Applied log transformations for skew-heavy financial variables.
+    - Created a final ML-ready dataset saved as Clustered_Customer_Data.csv.
+
+### 3. Exploratory Data Analysis (ML perspective)
+
+    - Visualized feature distributions to detect outliers and skewness.
+    - Generated correlation matrix heatmaps to understand multicollinearity.
+    - Identified strongly influential behavioral features for clustering:
+            - Purchases
+            - Payment behavior
+            - Cash advance patterns
+            - Frequency-based features
+
+### 4. Machine Learning — Clustering with KMeans
+
+Extensively tested and tuned KMeans:
+
+✔️ Optimal number of clusters identified using:
+      Elbow Method (Within-Cluster-Sum-of-Squares)
+      Silhouette Score
+      Cluster Compactness vs. Separation Analysis
+
+Chose optimal cluster count (typically 4) based on best silhouette performance.
+
+Final Model:
+<pre>kmeans = KMeans(n_clusters=4, n_init=10, random_state=42)
+labels = kmeans.fit_predict(scaled_df)</pre>
+
+✔️ Cluster Output:
+
+Added labels back to the dataset
+
+Visualized cluster separation through PCA plots
 
 </details>
 
