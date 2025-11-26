@@ -28,7 +28,6 @@ This segmentation supports risk assessment, product personalization, and strateg
 <summary><b>🧩 Project Steps</b></summary>
 
 ### 1. Import Libraries & Load Data
-
    - Imported essential ML libraries:
    - sklearn.cluster for KMeans
    - sklearn.preprocessing for StandardScaler
@@ -38,7 +37,6 @@ This segmentation supports risk assessment, product personalization, and strateg
 Loaded dataset and performed initial inspection.
 
 ### 2. ML-Oriented Data Cleaning & Feature Engineering
-
    - Imputed missing values using median strategy to avoid distribution distortion.
    - Removed non-predictive identifier column CUSTID.
    - Standardized features using StandardScaler to ensure equal weight for all ML dimensions.
@@ -46,7 +44,6 @@ Loaded dataset and performed initial inspection.
    - Created a final ML-ready dataset saved as Clustered_Customer_Data.csv.
 
 ### 3. Exploratory Data Analysis (ML perspective)
-
    - Visualized feature distributions to detect outliers and skewness.
    - Generated correlation matrix heatmaps to understand multicollinearity.
    - Identified strongly influential behavioral features for clustering:
@@ -56,7 +53,6 @@ Loaded dataset and performed initial inspection.
           - Frequency-based features
 
 ### 4. Machine Learning — Clustering with KMeans
-
 Extensively tested and tuned KMeans:
 
 #### ✔️ Optimal number of clusters identified using:
@@ -74,19 +70,51 @@ labels = kmeans.fit_predict(scaled_df)</pre>
    - Added labels back to the dataset
    - Visualized cluster separation through PCA plots
 
+### 5. Dimensionality Reduction — PCA
+Applied PCA to convert 18 features → 2 principal components for visualization:
+   - PCA1 captured spending & balance behavior
+   - PCA2 captured transaction frequency & advance usage
+Used scatterplots to visualize cluster boundaries clearly.
+
+### 6. Cluster Interpretation (ML + Business Insight)
+Each ML cluster was interpreted through:
+
+   - Centroid analysis
+   - Feature weight importance
+   - Spending-to-payment ratios
+   - Transaction behavior patterns
+
+Generated a full customer persona mapping for each cluster.
+
 </details>
 
 ---
 
 <details>
-<summary><b>📊 Key Insights</b></summary>
+<summary><b>📊 Key Machine Learning Insights</b></summary>
 
-- Budget has the strongest positive correlation with gross revenue (~0.74).
-- Votes also show a significant relationship (~0.61), reinforcing the link between audience engagement and earnings.
-- Runtime moderately correlates (~0.25), while IMDb score has only a weak influence (~0.09).
-- Company, director, and star correlations remain low (0.15–0.22), disproving assumptions of brand impact.
-- Genre and country contribute minimal effect (0.04–0.10).
-- Long-term trends (1980–2020) show gradual revenue growth but no single dominant factor outside investment and audience metrics.
+### 🔹 Cluster 1: Low-Interaction Customers
+   - Lowest purchases, low credit limit usage
+   - Low engagement → Suitable for basic savings plans
+
+### 🔹 Cluster 2: High-Spending Installment Users
+   - High purchase amounts
+   - Heavy on installment usage
+   - Good candidates for EMI products, consumer loans
+
+### 🔹 Cluster 3: Cash-Advance Dependent Group
+   - High cash advance usage, multiple cash transactions
+   - Potential risk profile → monitoring, credit counseling
+
+### 🔹 Cluster 4: Premium High-Value Customers
+   - High full-payment percentage
+   - Large credit limits, high spenders
+   - Ideal for premium credit cards, wealth management, investments
+
+### ML Performance Insights
+   - PCA visualization clearly showed four separable and coherent clusters
+   - Silhouette scores confirmed stable segmentation
+   - Frequency features strongly influenced cluster separation
 
 </details>
 
