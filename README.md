@@ -128,12 +128,13 @@ Generated a full customer persona mapping for each cluster.
 | **Python** | Core scripting and analysis language |
 | **Pandas** | Data manipulation and preprocessing |
 | **NumPy** | Numeric operations and array handling |
-| **Seaborn & Matplotlib** | Data visualization and correlation plotting |
-| **Scikit-Learn** | Data visualization and correlation plotting |
-| **KMeans** | Core scripting and analysis language |
-| **PCA** | Core scripting and analysis language |
-| **Jupyter Notebook** | Interactive environment for development and documentation |
-| **Dataset Source** | Kaggle Movie Industry Dataset (~7,666 entries, columns: name, genre, budget, gross, votes, year, etc.) |
+| **Seaborn & Matplotlib** | Exploratory visualizations |
+| **Scikit-Learn** | Scaling, KMeans clustering, PCA |
+| **StandardScaler** | Feature normalization |
+| **KMeans** | ML clustering algorithm |
+| **PCA** | Dimensionality reduction |
+| **Jupyter Notebook** | Experimentation & documentation |
+| **Dataset Source** | Kaggle Credit Card Customer Behavior Dataset (~9,000 entries, columns: 18 behavioral variables summarizing 6-month usage patterns for active cardholders) | |
 
 </details>
 
