@@ -60,9 +60,9 @@ Loaded dataset and performed initial inspection.
 Extensively tested and tuned KMeans:
 
 #### ✔️ Optimal number of clusters identified using:
-      Elbow Method (Within-Cluster-Sum-of-Squares)
-      Silhouette Score
-      Cluster Compactness vs. Separation Analysis
+   - Elbow Method (Within-Cluster-Sum-of-Squares)
+   - Silhouette Score
+   - Cluster Compactness vs. Separation Analysis
 
 Chose optimal cluster count (typically 4) based on best silhouette performance.
 
@@ -71,7 +71,6 @@ Chose optimal cluster count (typically 4) based on best silhouette performance.
 labels = kmeans.fit_predict(scaled_df)</pre>
 
 #### ✔️ Cluster Output:
-
    - Added labels back to the dataset
    - Visualized cluster separation through PCA plots
 
