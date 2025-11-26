@@ -145,18 +145,17 @@ Generated a full customer persona mapping for each cluster.
 
 1. Clone this repository:
    
-   ```git clone https://github.com/kawserabdullah/data_analysis_using_Python.git```
+   ```git clone https://github.com/yourusername/customer-segmentation.git```
 2. Install dependencies:
    
-   ```pip3 install pandas numpy seaborn matplotlib jupyter```
+   ```pip3 install pandas numpy seaborn matplotlib scikit-learn jupyter```
    
    *(In case you are using Linux like me and pip3 is not installed out of the box then please use
    ```sudo apt install python3-pip``` before using the above command.)*  
-3. Launch Jupyter Notebook:
+3. Run Notebook:
    
    ```jupyter notebook```  
-4. Open and run `Movie_Correlation_Analysis.ipynb`.  
-5. Replace the dataset path in `pd.read_csv('movies.csv')` if using a custom location.
+4. Open and run `customer_segmentation_project.ipynb`. 
 
 </details>
 
@@ -165,19 +164,19 @@ Generated a full customer persona mapping for each cluster.
 <details>
 <summary><b>❌ Error Handeling</b></summary>
 
-*Do all the steps below in "Data Cleaning & Preparation" step.*
-
-1. Checked for missing values: ```for col in df.columns: print(f'{col} - {np.mean(df[col].isnull())*100:.2f}%')``` (Identified high nulls in budget (~28%), gross (~2%), etc.)
-
-2. Handled missing data: Dropped rows with nulls in key columns like budget and gross using ```df = df.dropna(subset=['budget', 'gross'])```, or filled with medians/means (e.g., ```df['budget'].fillna(df['budget'].median(), inplace=True)```).
-
-3. Corrected data types: Converted budget and gross to float/int after removing any formatting (e.g., ```df['budget'] = df['budget'].astype('int64')```).
-
-4. Extracted accurate year: Created a new 'yearcorrect' column from 'released' date string: ```df['yearcorrect'] = df['released'].astype(str).str[:4]``` or using ```pd.to_datetime(df['released']).dt.year```.
-
-5. Removed duplicates: ```df.drop_duplicates()``` (no impact in this dataset).
-
-*In my case, Error mainly arrived because of not cleaning the dataset properly.*
+### ⚠️ 1. Missing Values Breaking KMeans
+   
+   <pre>df.fillna(df.median(), inplace=True)</pre>
+### ⚠️ 2. Not Scaling → Poor Cluster Performance
+   
+   <pre>scaler = StandardScaler()
+scaled_df = scaler.fit_transform(df)</pre>
+   
+### ⚠️ 3. Convergence Warnings
+   
+   <pre>KMeans(n_clusters=4, n_init=10)</pre>  
+### ⚠️ 4. PCA Errors (Shape mismatch)
+Ensured both fit on scaled data only.
 
 </details>
 
