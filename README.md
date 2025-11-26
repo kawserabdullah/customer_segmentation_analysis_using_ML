@@ -29,52 +29,51 @@ This segmentation supports risk assessment, product personalization, and strateg
 
 ### 1. Import Libraries & Load Data
 
-    - Imported essential ML libraries:
-    - sklearn.cluster for KMeans
-    - sklearn.preprocessing for StandardScaler
-    - sklearn.decomposition for PCA
-    - scipy for statistical checks
+   - Imported essential ML libraries:
+   - sklearn.cluster for KMeans
+   - sklearn.preprocessing for StandardScaler
+   - sklearn.decomposition for PCA
+   - scipy for statistical checks
 
 Loaded dataset and performed initial inspection.
 
 ### 2. ML-Oriented Data Cleaning & Feature Engineering
 
-    - Imputed missing values using median strategy to avoid distribution distortion.
-    - Removed non-predictive identifier column CUSTID.
-    - Standardized features using StandardScaler to ensure equal weight for all ML dimensions.
-    - Applied log transformations for skew-heavy financial variables.
-    - Created a final ML-ready dataset saved as Clustered_Customer_Data.csv.
+   - Imputed missing values using median strategy to avoid distribution distortion.
+   - Removed non-predictive identifier column CUSTID.
+   - Standardized features using StandardScaler to ensure equal weight for all ML dimensions.
+   - Applied log transformations for skew-heavy financial variables.
+   - Created a final ML-ready dataset saved as Clustered_Customer_Data.csv.
 
 ### 3. Exploratory Data Analysis (ML perspective)
 
-    - Visualized feature distributions to detect outliers and skewness.
-    - Generated correlation matrix heatmaps to understand multicollinearity.
-    - Identified strongly influential behavioral features for clustering:
-            - Purchases
-            - Payment behavior
-            - Cash advance patterns
-            - Frequency-based features
+   - Visualized feature distributions to detect outliers and skewness.
+   - Generated correlation matrix heatmaps to understand multicollinearity.
+   - Identified strongly influential behavioral features for clustering:
+          - Purchases
+          - Payment behavior
+          - Cash advance patterns
+          - Frequency-based features
 
 ### 4. Machine Learning — Clustering with KMeans
 
 Extensively tested and tuned KMeans:
 
-✔️ Optimal number of clusters identified using:
+#### ✔️ Optimal number of clusters identified using:
       Elbow Method (Within-Cluster-Sum-of-Squares)
       Silhouette Score
       Cluster Compactness vs. Separation Analysis
 
 Chose optimal cluster count (typically 4) based on best silhouette performance.
 
-Final Model:
+#### ✔️ Final Model:
 <pre>kmeans = KMeans(n_clusters=4, n_init=10, random_state=42)
 labels = kmeans.fit_predict(scaled_df)</pre>
 
-✔️ Cluster Output:
+#### ✔️ Cluster Output:
 
-Added labels back to the dataset
-
-Visualized cluster separation through PCA plots
+   - Added labels back to the dataset
+   - Visualized cluster separation through PCA plots
 
 </details>
 
