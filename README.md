@@ -1,4 +1,4 @@
-##🧮 Customer Segmentation Using Credit Card Data (Advanced ML Clustering Project)
+## 🧮 Customer Segmentation Using Credit Card Data (Advanced ML Clustering Project)
 
 A Python-based **machine learning project** focused on unsupervised clustering of ~9,000 credit card customers using real-world behavioral financial data. The goal is to segment customers using **KMeans clustering, PCA dimensionality reduction, feature scaling, and statistical analysis,** enabling banks to recommend customized **loans, credit upgrades, saving plans, and wealth management services.**
 
