@@ -121,7 +121,7 @@ Generated a full customer persona mapping for each cluster.
 ---
 
 <details>
-<summary><b>🧰 Tools Used</b></summary>
+<summary><b>🧰 Tools & ML Libraries Used</b></summary>
 
 | Tool | Purpose |
 |------|----------|
@@ -129,6 +129,9 @@ Generated a full customer persona mapping for each cluster.
 | **Pandas** | Data manipulation and preprocessing |
 | **NumPy** | Numeric operations and array handling |
 | **Seaborn & Matplotlib** | Data visualization and correlation plotting |
+| **Scikit-Learn** | Data visualization and correlation plotting |
+| **KMeans** | Core scripting and analysis language |
+| **PCA** | Core scripting and analysis language |
 | **Jupyter Notebook** | Interactive environment for development and documentation |
 | **Dataset Source** | Kaggle Movie Industry Dataset (~7,666 entries, columns: name, genre, budget, gross, votes, year, etc.) |
 
