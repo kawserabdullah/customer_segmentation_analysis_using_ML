@@ -28,20 +28,19 @@ This segmentation supports risk assessment, product personalization, and strateg
 <summary><b>🧩 Project Steps</b></summary>
 
 ### 1. Import Libraries & Load Data
-   - Imported essential ML libraries:
-   - sklearn.cluster for KMeans
-   - sklearn.preprocessing for StandardScaler
-   - sklearn.decomposition for PCA
-   - scipy for statistical checks
-
+Imported essential ML libraries:
+   - `sklearn.cluster` for KMeans
+   - `sklearn.preprocessing` for StandardScaler
+   - `sklearn.decomposition` for PCA
+   - `scipy` for statistical checks
 Loaded dataset and performed initial inspection.
 
 ### 2. ML-Oriented Data Cleaning & Feature Engineering
    - Imputed missing values using median strategy to avoid distribution distortion.
-   - Removed non-predictive identifier column CUSTID.
-   - Standardized features using StandardScaler to ensure equal weight for all ML dimensions.
+   - Removed non-predictive identifier column `CUSTID`.
+   - Standardized features using **StandardScaler** to ensure equal weight for all ML dimensions.
    - Applied log transformations for skew-heavy financial variables.
-   - Created a final ML-ready dataset saved as Clustered_Customer_Data.csv.
+   - Created a final ML-ready dataset saved as `Clustered_Customer_Data.csv`.
 
 ### 3. Exploratory Data Analysis (ML perspective)
    - Visualized feature distributions to detect outliers and skewness.
@@ -56,9 +55,9 @@ Loaded dataset and performed initial inspection.
 Extensively tested and tuned KMeans:
 
 #### ✔️ Optimal number of clusters identified using:
-   - Elbow Method (Within-Cluster-Sum-of-Squares)
-   - Silhouette Score
-   - Cluster Compactness vs. Separation Analysis
+   - **Elbow Method** (Within-Cluster-Sum-of-Squares)
+   - **Silhouette Score**
+   - **Cluster Compactness** vs. **Separation Analysis**
 
 Chose optimal cluster count (typically 4) based on best silhouette performance.
 
@@ -72,18 +71,16 @@ labels = kmeans.fit_predict(scaled_df)</pre>
 
 ### 5. Dimensionality Reduction — PCA
 Applied PCA to convert 18 features → 2 principal components for visualization:
-   - PCA1 captured spending & balance behavior
-   - PCA2 captured transaction frequency & advance usage
+   - PCA1 captured **spending & balance** behavior
+   - PCA2 captured **transaction frequency & advance usage**
 Used scatterplots to visualize cluster boundaries clearly.
 
 ### 6. Cluster Interpretation (ML + Business Insight)
 Each ML cluster was interpreted through:
-
    - Centroid analysis
    - Feature weight importance
    - Spending-to-payment ratios
    - Transaction behavior patterns
-
 Generated a full customer persona mapping for each cluster.
 
 </details>
@@ -100,7 +97,7 @@ Generated a full customer persona mapping for each cluster.
 ### 🔹 Cluster 2: High-Spending Installment Users
    - High purchase amounts
    - Heavy on installment usage
-   - Good candidates for EMI products, consumer loans
+   - Good candidates for **EMI products, consumer loans**
 
 ### 🔹 Cluster 3: Cash-Advance Dependent Group
    - High cash advance usage, multiple cash transactions
@@ -109,11 +106,11 @@ Generated a full customer persona mapping for each cluster.
 ### 🔹 Cluster 4: Premium High-Value Customers
    - High full-payment percentage
    - Large credit limits, high spenders
-   - Ideal for premium credit cards, wealth management, investments
+   - Ideal for **premium credit cards, wealth management, investments**
 
 ### ML Performance Insights
-   - PCA visualization clearly showed four separable and coherent clusters
-   - Silhouette scores confirmed stable segmentation
+   - PCA visualization clearly showed **four separable and coherent clusters**
+   - Silhouette scores confirmed **stable segmentation**
    - Frequency features strongly influenced cluster separation
 
 </details>
@@ -123,7 +120,7 @@ Generated a full customer persona mapping for each cluster.
 <details>
 <summary><b>🧰 Tools & ML Libraries Used</b></summary>
 
-| Tool | Purpose |
+| **Tool** | **Purpose** |
 |------|----------|
 | **Python** | Core scripting and analysis language |
 | **Pandas** | Data manipulation and preprocessing |
